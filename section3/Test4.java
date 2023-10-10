@@ -9,9 +9,9 @@ public class Test4 {
         for(int rt=0; rt<n; rt++){
             sum+=a[rt];
             if(sum == m) answer++;
-            while(sum >= m){
-                sum -= a[lt++];
-                if(sum == m) answer++;
+            while(sum >= m){ //m보다 큰데 더해줄 필요 없기에 
+                sum -= a[lt++]; //a[lt]만큼 빼주기
+                if(sum == m) answer++; //이때도 m이랑 같은지 검사필요
             }
         }
 
