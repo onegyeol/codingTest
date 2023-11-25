@@ -16,9 +16,9 @@ public class Test4 {
 
         for(int rt = t.length()-1; rt<s.length(); rt++){
             sm.put(s.charAt(rt), sm.getOrDefault(s.charAt(rt), 0)+1);
-            if(sm.equals(tm)) answer++;
-            sm.put(s.charAt(lt), sm.get(s.charAt(lt))-1);
-            if(sm.get(s.charAt(lt))==0) sm.remove(s.charAt(lt));
+            if(sm.equals(tm)) answer++; //해쉬맵 비교시 equals 메서드 사용
+            sm.put(s.charAt(lt), sm.get(s.charAt(lt))-1); //일단 해당 키 값을 삭제하는게 아닌 -1 해주고
+            if(sm.get(s.charAt(lt))==0) sm.remove(s.charAt(lt)); //해당 키의 값이 0이면 완전히 없애줌.
             lt++;
         }
 
