@@ -18,6 +18,15 @@ public class Test2 {
             }
         }
 
+
+        /**
+         * for(char c : s.toCharArray()){
+         *  if(c == ')') 
+         *      while(sta.pop() != '(');
+         *  else sta.push(c);
+         * }
+         */
+
         for(char c : sta)
             System.out.print(c);
     }
