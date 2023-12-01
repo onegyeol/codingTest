@@ -20,6 +20,15 @@ public class Test3 {
                     else {
                         sta.push(board[j][moves[i]-1]);
                     }
+                    /**
+                     * if(!sta.isEmpty() && sta.peek()){
+                     *  answer += 2;
+                     *  sta.pop();
+                     * }
+                     * else{
+                     *  sta.push(board[j][moves[i]-1]);
+                     * }
+                     */
                     board[j][moves[i]-1] = 0; //해당 배열의 수 0으로 바꿔줌
                     break; //안쪽 반복문 탈출
                 }
