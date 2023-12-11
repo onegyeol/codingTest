@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "codingTest",
+			"path": "C:/Users/mypc/codingTest"
+		}
+	],
+	"settings": {
+		"java.dependency.packagePresentation": "flat"
+	}
+}
