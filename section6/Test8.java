@@ -3,9 +3,21 @@ package section6;
 import java.util.*;
 
 public class Test8 {
+    /**
+     * public int solution(int n, int m, int[] a){
+     *      int low=0, high=n-1;
+     *      while(low <= high){
+     *          int mid = (low+high)/2;
+     *          나머지는 로직 동일
+     *      }
+     *  
+     *
+     * }
+     * 
+     */
     
     public static void main(String[] args) {
-        Test8 t = new Test8();
+        //Test8 t = new Test8();
         Scanner in = new Scanner(System.in);
 
         int n = in.nextInt();
@@ -16,7 +28,11 @@ public class Test8 {
             arr[i] = in.nextInt();
         }
 
-        System.out.println(binarySearch(n, m, arr));
+        System.out.println(binarySearch(n, m, arr)); //반복 사용
+        /**
+         * 함수 사용
+         * System.out.println(t.solution(n, m, arr));
+         **/
 
 
     }
