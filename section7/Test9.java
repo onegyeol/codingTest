@@ -17,7 +17,7 @@ class Node{
 }
 
 
-public class Test {
+public class Test9 {
     Node root;
 
     public int DFS(int level, Node root){
@@ -45,7 +45,7 @@ public class Test {
 
     }
     public static void main(String[] args) {
-        Test tree = new Test();
+        Test9 tree = new Test9();
         tree.root = new Node(1);
         tree.root.lt = new Node(2);
         tree.root.rt = new Node(3);
