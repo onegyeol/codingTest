@@ -19,7 +19,7 @@ public class Test12 {
                 if(graph[k][i] == 1 && ch[i] == 0){
                     ch[i]=1;
                     DFS(i);
-                    ch[i]=0;
+                    ch[i]=0; //다시 0으로 바꿔줘야 다른 정점에서 사용 가능
                 }
             }
         }
