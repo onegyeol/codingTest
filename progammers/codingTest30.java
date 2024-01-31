@@ -42,7 +42,7 @@ public class codingTest30 {
                     q.offer(nv);
                     q.offer(dis + 1); //dis 증가
                     
-                    if (maxDepth < dis + 1) {
+                    if (maxDepth < dis + 1) { //우리가 큐에 넣은 증가된 값 기준으로 maxDepth랑 비교해야함
                         maxDepth = dis + 1;
                         answer = 1; // 새로운 최대 깊이에 도달한 경우에는 answer를 1로 초기화
                     } else if (maxDepth == dis + 1)  answer++; // 최대 깊이와 일치하는 경우에만 answer를 증가
