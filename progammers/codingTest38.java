@@ -14,7 +14,7 @@ public class codingTest38 {
     public int solution(String[] babbling) {
         int answer = 0;
         String[] arr = {"aya", "ye", "woo", "ma"};
-        Queue<String> q = new LinkedList<>();
+        Queue<String> q = new LinkedList<>(); //연달아 발음하는 것을 찾기 위해 큐 사용
         
         for(int i=0; i<babbling.length; i++){
             String s = "";
@@ -23,7 +23,7 @@ public class codingTest38 {
                 s += babbling[i].substring(j, j+1);
                 for(int k=0; k<arr.length; k++){
                     if(arr[k].equals(s)){
-                        if(!q.isEmpty() && (q.poll()).equals(s)) break;
+                        if(!q.isEmpty() && (q.poll()).equals(s)) break; 
                         len += s.length();
                         q.offer(s);
                         s="";
@@ -46,13 +46,13 @@ public class codingTest38 {
                 continue;
             }
 
-            babblings[i] = babblings[i].replace("aya", " ");
+            babblings[i] = babblings[i].replace("aya", " "); //각 발음들이 존재한다면 공백으로 바꿔줌
             babblings[i] = babblings[i].replace("ye", " ");
             babblings[i] = babblings[i].replace("woo", " ");
             babblings[i] = babblings[i].replace("ma", " ");
             babblings[i] = babblings[i].replace(" ", "");
 
-            if(babblings[i].length()  == 0) answer++;
+            if(babblings[i].length()  == 0) answer++; //공백으로 바뀌었다는 건 발음할 수 있단 단어가 있단 뜻이기에 answer+1
 
         }
         return answer;
