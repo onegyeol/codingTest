@@ -44,7 +44,7 @@ public class codingTest39 {
             }
             else { //숫자 아닐 때
                 if(dart[i] == 'S'){
-                    score[cnt] = (int) Math.pow(Integer.parseInt(s), 1);
+                    score[cnt] = (int) Math.pow(Integer.parseInt(s), 1); //거듭제곱 구할 수 있는 메소드
                 }
                 else if(dart[i] == 'D'){
                     score[cnt] = (int) Math.pow(Integer.parseInt(s), 2);
