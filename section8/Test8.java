@@ -16,7 +16,7 @@ public class Test8 {
     static boolean flag = false;
 
     public int combi(int n, int r){
-        if(dy[n][r] > 0) return dy[n][r];
+        if(dy[n][r] > 0) return dy[n][r]; //이미 값이 존재하면 있던 값 리턴
         if(n==r || r==0) return 1;
         else return dy[n][r] = combi(n-1, r-1) + combi(n-1, r);
     }
@@ -35,6 +35,7 @@ public class Test8 {
                     ch[i] = 1;
                     p[l] = i; //인덱스 l에 값 i를 넣어줌
                     DFS(l+1, sum+(p[l]*c[l])); // 조합 배열의 l번 인덱스에 있는 값과 p배열에 있는 값을 곱해 sum에 더함
+                    ch[i] = 0;
                 }
             }
         }
