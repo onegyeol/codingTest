@@ -28,7 +28,7 @@ public class codingTest47 {
         while(left<right){
             int sum = people[left]+people[right];
             
-            if(sum > limit) right--;
+            if(sum > limit) right--; //큰 쪽을 버림
             else {
                 left++;
                 right--;
