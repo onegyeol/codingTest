@@ -31,7 +31,6 @@ public class codingTest51 {
             }
             cnt++;
         }
-
         return tree.size();
     }
 
