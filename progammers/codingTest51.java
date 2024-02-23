@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.TreeSet;
 
 /** 프로그래머스 Lv.2 귤 고르기
  * 
@@ -16,31 +17,22 @@ import java.util.PriorityQueue;
  */
 
 public class codingTest51 {
-    public int solution(int k, int[] tangerine) {
-        int answer = 0;
-        Map<Integer, Integer> map = new HashMap<>();
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()); //내림차순정렬
+     public int solution(int[] elements) {
+        TreeSet<Integer> tree = new TreeSet<>(); //중복 방지 위해 TreeSet 자료형 사용
         
-        for(int i:tangerine){
-            map.put(i, map.getOrDefault(i, 0)+1);
-        }
-        
-        for(Integer i : map.keySet()){
-            pq.add(map.get(i));
-        }
-        
-        while(k>0){
-            if(pq.peek() > k){ //k보다 많기에 그 갯수에서 k개만큼 고르면 됨
-                pq.poll();
-                answer++;
-                break;
+        int cnt=1; //길이
+        while(cnt <= elements.length){
+            for(int i=0; i<elements.length; i++){
+                int sum=0;
+                for(int j=i; j<cnt+i; j++){
+                    sum += elements[j % elements.length]; //처음과 끝이 이어져있는 것을 고려
+                }
+                tree.add(sum);
             }
-            else{
-                k -= pq.poll();
-                answer++;
-            }
+            cnt++;
         }
-        return answer;
+
+        return tree.size();
     }
 
 }
