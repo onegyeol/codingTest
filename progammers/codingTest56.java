@@ -11,6 +11,7 @@ package progammers;
 public class codingTest56 {
     class Solution {
         public int solution(String[] spell, String[] dic) {
+            int answer=2;
             for (String word : dic) {
                 boolean[] found = new boolean[spell.length]; // 스펠링의 존재 여부를 체크하기 위한 배열
     
@@ -32,9 +33,9 @@ public class codingTest56 {
                     }
                 }
     
-                if (allFound) return 1; // 모든 스펠링이 딕셔너리 안에 있을 경우
+                if (allFound) answer = 1; // 모든 스펠링이 딕셔너리 안에 있을 경우
             }
-            return 2; // 딕셔너리 안에 모든 스펠링이 없을 경우
+            return answer; // 딕셔너리 안에 모든 스펠링이 없을 경우
         }
     }
     
