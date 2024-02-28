@@ -45,10 +45,11 @@ public class Test7 {
         for(int i=0; i<=v; i++) graph.add(new ArrayList<Edge>());
 
         int[] ch = new int[v+1];
+
         for(int i=0; i<e; i++){
             int a = in.nextInt();
             int b = in.nextInt();
-            int c = in.nextInt()
+            int c = in.nextInt();
             graph.get(a).add(new Edge(b, c)); //무방향 그래프이기에 양쪽 모두 다 넣어 줌
             graph.get(b).add(new Edge(a, c));
         }
