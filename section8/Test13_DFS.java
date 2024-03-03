@@ -41,6 +41,7 @@ public class Test13_DFS {
             for(int j=0; j<n; j++){
                 if(board[i][j] == 1){ //섬일때만
                     answer++;
+                    board[i][j] = 0; // 위 BFS에서는 중심점 기준으로 계산한 값이기에 처음 시작지점을 0으로 바꿔주지 않음. 그래서 따로 처리
                     DFS(i, j, board); //그 주위의 1인 친구들 찾으러 감
                 }
             }
