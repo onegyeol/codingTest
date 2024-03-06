@@ -18,11 +18,11 @@ import java.util.Arrays;
 public class codingTest66 {
 
      public boolean solution(String[] phone_book) {
-        Arrays.sort(phone_book);
+        Arrays.sort(phone_book); //정렬안하고 이중 반복문 돌리면 시간복잡도가  o(n^2)가 되버려서 효율성이 떨어짐. 꼭 정렬해주기
 
         for(int i=0; i<phone_book.length-1; i++){
             String str = phone_book[i];
-            if(phone_book[i+1].startsWith(str)) return false;
+            if(phone_book[i+1].startsWith(str)) return false; //접두사이기 때문에 startsWith 메서드를 사용해줌.
             
         }
         
