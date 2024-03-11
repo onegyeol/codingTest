@@ -20,8 +20,58 @@ import java.util.*;
 (조건5) 무게가 무거운 벽돌을 무게가 가벼운 벽돌 위에 놓을 수 없다.
  */
 
+class Top implements Comparable<Top>{
+    public int width, height, weight;
+
+    Top(int width, int height, int weight){
+        this.width = width;
+        this.height = height;
+        this.weight = weight;
+    }
+
+    @Override
+    public int compareTo(Top o) {
+        return o.width - this.width;
+    }
+
+}
+
 public class Test4 {
+    static int[] h;
+
+    public int solution(ArrayList<Top> arr){
+        Collections.sort(arr); //넓이 순으로 정렬
+        h[0] = arr.get(0).height;
+
+        for(int i=1; i<arr.size(); i++){
+            int max_h = 0;
+            for(int j=i-1; j>=0;j--){
+                if(arr.get(j).weight > arr.get(i).weight && h[j] > max_h){ //위에 쌓이는 애가 더 가벼워야함
+                    max_h = h[j];
+                }
+            }
+            h[i] = max_h + arr.get(i).height;
+        }
+
+        return Arrays.stream(h).max().getAsInt();
+    }
     public static void main(String[] args) {
+        Test4 t = new Test4();
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+
+        ArrayList<Top> arr = new ArrayList<>();
+        h = new int[n];
+
+        for(int i=0; i<n; i++){
+            int width = in.nextInt();
+            int height = in.nextInt();
+            int weight = in.nextInt();
+            arr.add(new Top(width, height, weight));   
+        }
+        
+        System.out.println(t.solution(arr));
         
     }
 }
