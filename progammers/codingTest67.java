@@ -28,16 +28,19 @@ public class codingTest67 {
         ArrayList<String> multi2 = new ArrayList<>(); //B집합
         ArrayList<String> union = new ArrayList<>(); //합집합
         ArrayList<String> intersection = new ArrayList<>(); //교집합
- 
-        str1 = str1.toLowerCase(); //대소문자 상관없다고 했으니 일단 소문자로 다 바꿔줌
+    
+        // 입력된 문자열을 모두 소문자로 변환
+        str1 = str1.toLowerCase();
         str2 = str2.toLowerCase();
         
+        // 각 문자열에서 두 글자씩 묶어서 다중집합 생성
         for(int i=0; i<str1.length()-1; i++){
             char first = str1.charAt(i);
             char second = str1.charAt(i+1);
             
+            // 두 글자가 모두 알파벳이면 다중집합에 추가
             if(first >= 'a' && first <= 'z' && 
-                second >= 'a' && second <= 'z'){ // 각각의 글자가 알파벳이면 추가해줌
+                second >= 'a' && second <= 'z'){
                 multi1.add(first + "" + second);
             }
         }
@@ -45,32 +48,38 @@ public class codingTest67 {
             char first = str2.charAt(i);
             char second = str2.charAt(i+1);
             
+            // 두 글자가 모두 알파벳이면 다중집합에 추가
             if(first >= 'a' && first <= 'z' &&
                 second >= 'a' && second <= 'z'){
                 multi2.add(first + "" + second);
             }
         }
         
+        // 다중집합을 사전순으로 정렬
         Collections.sort(multi1);
         Collections.sort(multi2);
         
+        // 교집합과 합집합 계산
         for(String s : multi1){
-            if(multi2.remove(s)){ //겹치는 문자들 삭제해줌
-                intersection.add(s); //그리고 교집합에 넣어줌
+            if(multi2.remove(s)){ // 공통 원소가 있다면 multi2에서 제거하고 교집합에 추가
+                intersection.add(s);
             }
-            union.add(s);
+            union.add(s); // 모든 원소는 합집합에 추가
         }
         
-        for(String s : multi2) union.add(s); //교집합에 들어가지 않은 multi2의 단어들 합집합에 넣어줌
-
+        // multi2에 남아있는 원소는 교집합에 포함되지 않은 것들이므로 합집합에 추가
+        for(String s : multi2) union.add(s);
+    
         double answer = 0;
-
+    
+        // 합집합이 비어있을 경우 예외 처리하여 계산식에서 0으로 나누는 오류 방지
         if(union.size() == 0) answer=1;
         else answer = (double)intersection.size()/(double)union.size();
         
-        
+        // Jaccard 유사도 계산 및 반환
         return (int)(answer*65536);
     }
+    
 
     /**
      * 다른사람 풀이
