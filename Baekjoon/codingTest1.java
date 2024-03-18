@@ -34,7 +34,7 @@ public class codingTest1 {
         int k = in.nextInt(); //버틸 수 있는 무게
 
         Things[] arr = new Things[n+1];
-        for(int i=1; i<n; i++){
+        for(int i=1; i<=n; i++){
             arr[i] = new Things(in.nextInt(), in.nextInt());
         }
 
@@ -50,6 +50,8 @@ public class codingTest1 {
                 }
             }
         }
+
+        System.out.println(dp[n][k]);
 
     }
 }
