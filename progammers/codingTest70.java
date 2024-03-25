@@ -22,7 +22,7 @@ public class codingTest70 {
         dfs("", 0);
         
         for(int i=0; i<list.size(); i++){
-            if(list.get(i).equals(word)){
+            if(list.get(i).equals(word)){ //리스트의 단어와 word가 같으면 그 인덱스를 반환
                 answer = i;
                 break;
             }
@@ -31,7 +31,7 @@ public class codingTest70 {
     }
     
     static void dfs(String s, int l){
-        list.add(s);
+        list.add(s); //경우의 수를 리스트에 넣음
         if(l == 5) return;
         for(int i=0; i<5; i++){
             dfs(s+words[i], l+1);
