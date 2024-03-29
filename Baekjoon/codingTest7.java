@@ -68,7 +68,7 @@ public class codingTest7 {
 
             int val = Math.abs(startTeam-linkTeam); //절대값을 넣어줌
 
-            if(val == 0){
+            if(val == 0){ //차이가 0이면 더 볼 것도 없음
                 System.out.println(val);
                 System.exit(0);
             }
