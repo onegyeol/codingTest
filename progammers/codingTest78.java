@@ -1,44 +1,19 @@
 package progammers;
-import java.util.*;
-
 /**
- * 프로그래머스 Lv.1 실패율
- * 2019 KAKAO BLIND RECRUITMENT
+ * 프로그래머스 Lv.2 주차요금 정산
+ * 
+ * 주차장의 요금표와 차량이 들어오고(입차) 나간(출차) 기록이 주어졌을 때, 차량별로 주차 요금을 계산하려고 합니다. 아래는 하나의 예시를 나타냅니다.
+ * 어떤 차량이 입차된 후에 출차된 내역이 없다면, 23:59에 출차된 것으로 간주합니다.
+0000번 차량은 18:59에 입차된 이후, 출차된 내역이 없습니다. 따라서, 23:59에 출차된 것으로 간주합니다.
+00:00부터 23:59까지의 입/출차 내역을 바탕으로 차량별 누적 주차 시간을 계산하여 요금을 일괄로 정산합니다.
+누적 주차 시간이 기본 시간이하라면, 기본 요금을 청구합니다.
+누적 주차 시간이 기본 시간을 초과하면, 기본 요금에 더해서, 초과한 시간에 대해서 단위 시간 마다 단위 요금을 청구합니다.
+초과한 시간이 단위 시간으로 나누어 떨어지지 않으면, 올림합니다.
+⌈a⌉ : a보다 작지 않은 최소의 정수를 의미합니다. 즉, 올림을 의미합니다.
+주차 요금을 나타내는 정수 배열 fees, 자동차의 입/출차 내역을 나타내는 문자열 배열 records가 매개변수로 주어집니다. 
+차량 번호가 작은 자동차부터 청구할 주차 요금을 차례대로 정수 배열에 담아서 return 하도록 solution 함수를 완성해주세요.
  */
 
 public class codingTest78 {
-    class Solution {
-        public int[] solution(int N, int[] stages) {
-            HashMap<Integer, Double> map = new HashMap<>();
-            int[] userFailCnts = new int[N+2];
-            int[] userTotalCnts = new int[N+1];
-            
-            //스테이지 별 머물러있는 사용자 수 카운트
-            for(int stage : stages) {
-                userFailCnts[stage]++;
-            }
-            
-            //스테이지 별 도달한 플레이어 수 카운트
-            userTotalCnts[N] = userFailCnts[N] + userFailCnts[N+1];       
-            for(int i = N-1; i >=1; i--) {
-                userTotalCnts[i] = userFailCnts[i] + userTotalCnts[i+1]; //그 다음 스테이지에 도달했다는 건 현재 스테이지를 성공했단 뜻
-            }
-            
-            //스테이지 별 실패율 계산
-            for (int i = 1; i < userTotalCnts.length; i++) {
-                if (userFailCnts[i] == 0 || userTotalCnts[i] == 0) {
-                    map.put(i, 0.0);
-                } else {
-                    map.put(i, (double)userFailCnts[i] / userTotalCnts[i]);
-                }
-            }
-            
-            //실패율(value) 값으로 스테이지(key)를 내림차순 정렬
-            List<Integer> list = new ArrayList<>(map.keySet());
-            Collections.sort(list, (o1, o2) -> Double.compare(map.get(o2), map.get(o1)));
-
-            return list.stream().mapToInt(Integer::intValue).toArray(); 
-        } 
-    }
 
 }
