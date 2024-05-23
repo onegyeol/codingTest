@@ -16,6 +16,5 @@ package progammers;
 
 public class codingTest78 {
     public static void main(String[] args) {
-        
     }
 }
