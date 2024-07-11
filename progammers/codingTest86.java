@@ -14,12 +14,21 @@ package progammers;
 public class codingTest86 {
     public String solution(int n, int t, int m, int p) {
         String answer = "";
-        for(int i=0; i<t; i++){
-            String s = Integer.toString(i, n);
-            System.out.println(s);
-            answer += s;
+        StringBuilder sb = new StringBuilder();
+        int num=0;
+        
+        // m명이 t번 하는 경우
+        while(sb.length()<t*m){
+            sb.append(Integer.toString(num++, n));
         }
-        return answer;
+        
+        //튜브가 말해야 하는 숫자만 answer에 더해줌
+        for(int i=p-1; i<m*t; i+=m){
+            answer += sb.charAt(i);
+        }
+        
+        //이때 각각 대문자로만 출력하기에 toUpperCase() 사용
+        return answer.toUpperCase();
     }
 
 }
