@@ -38,7 +38,7 @@ public class codingTest23 {
         }
 
         if(dp[k-1] == Integer.MAX_VALUE-1) System.out.println(-1);
-        else System.out.println(dp[k-1]);
+        else System.out.println(dp[k]);
 
 
 
