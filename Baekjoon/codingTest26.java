@@ -3,7 +3,6 @@ package Baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 /**
  * 백즌 9251번 LCS
@@ -27,15 +26,15 @@ public class codingTest26 {
         b = br.readLine().toCharArray();
         dp = new Integer[a.length][b.length];
 
-        System.out.println(lcs(a.length-1, b.length-1));
+        System.out.println(lcs(a.length-1, b.length-1)); 
     }
 
     static int lcs(int x, int y){
         if(x==-1 || y==-1) return 0;
         if(dp[x][y] == null){
             dp[x][y] = 0;
-            if(a[x] == b[y]) dp[x][y] = lcs(x-1, y-1)+1; // 부분 수열 찾음
-            else dp[x][y] = Math.max(lcs(x, y-1), lcs(x-1, y));
+            if(a[x] == b[y]) dp[x][y] = lcs(x-1, y-1)+1; // 부분 수열 찾음 -> +1, 값을 누적시키며 LCS 값 증가시킴
+            else dp[x][y] = Math.max(lcs(x, y-1), lcs(x-1, y)); 
         }
 
         return dp[x][y];
