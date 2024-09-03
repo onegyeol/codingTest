@@ -25,16 +25,16 @@ public class codingTest25 {
 
         int answer=0;
 
-        for(long i=2; i<=Math.sqrt(max); i++){
+        for(long i=2; i<=Math.sqrt(max); i++){ //제곱수로 나누어지는 수들을 걸러내는 역할을 함
             long tmp = i*i;
-            long start = min%tmp==0 ? min/tmp : (min/tmp)+1 ;
+            long start = min%tmp==0 ? min/tmp : (min/tmp)+1 ; //제곱수의 배수에 해당하는 숫자들 모두 true로 설정. 이들은 제곱 ㄴㄴ 수가 아님
             for(long j=start; j*tmp<=max; j++){
                 isPrime[(int)((j*tmp) - min)] = true;
             }
         }
 
         for(int i=0; i<size; i++){
-            if(!isPrime[i]) answer++;
+            if(!isPrime[i]) answer++; //false인 친구들의 숫자를 카운트함
         }
 
         System.out.println(answer);
