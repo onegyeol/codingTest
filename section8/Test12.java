@@ -28,7 +28,7 @@ import java.util.*;
 
  */
 
- class Point{
+class Point{
      public int x, y;
      Point(int x, int y){
          this.x=x;
