@@ -19,27 +19,62 @@ import java.util.*;
  */
 
 public class codingTest35 {
+    static int n;
+    static List<List<Integer>> list = new ArrayList<>();
+    static int[] time, parentNum, answer;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n = Integer.parseInt(st.nextToken());
-        ArrayList<Integer>[] arr = new ArrayList[n];
+        n = Integer.parseInt(st.nextToken());
 
-        for(int i=0; i<n; i++){
-            arr[i] = new ArrayList<>();
+        time = new int[n+1]; // 수행시간
+        parentNum = new int[n+1]; // 선행 작업
+        answer = new int[n+1]; // 정답 배열
+
+        for(int i=0; i<=n; i++){
+            list.add(new ArrayList<>());
         }
 
-        for(int i=0; i<n; i++){
-            while(true){
-                st = new StringTokenizer(br.readLine());
-                int k = Integer.parseInt(st.nextToken());
-                if(k == -1) break;
+        for(int i=1; i<=n; i++){
+            st = new StringTokenizer(br.readLine());
+            time[i] = Integer.parseInt(st.nextToken()); // 처음 입력되는 숫자는 수행 시간
+            
+            while(st.hasMoreTokens()){ // 그 다음 토큰이 존재할동안
+                int num = Integer.parseInt(st.nextToken());
 
-                arr[i].add(k);
+                if(num == -1) break;
+
+                list.get(num).add(i); // ex) 작업1을 우선순위로 갖는 작업 번호들 list에 추가
+                parentNum[i]++; // 해당 작업을 수행하기 위한 선행 작업의 갯수 count
             }
         }
 
+        logicalSort();
 
+        for(int i=1; i<=n; i++){
+            System.out.println(answer[i]);
+        }
+    }
+
+    static void logicalSort(){
+        Queue<Integer> q = new LinkedList<>();
+
+        for(int i=1; i<=n; i++){
+            if(parentNum[i] == 0) q.offer(i); // 선행 작업이 없으면 큐에 넣음
+        }
+
+        while(!q.isEmpty()){ 
+            int vertex = q.poll();
+            answer[vertex] += time[vertex];
+            
+            for(int j=0; j<list.get(vertex).size(); j++){
+                int next = list.get(vertex).get(j); // 해당 작업을 선행 작업에 넣는 작업의 번호 수
+                parentNum[next]--;  // 해당 작업을 선행 작업으로 갖는 수 감소
+                if(parentNum[next] == 0) q.offer(next); // 선행작업 모두 수행 시 큐에 넣음
+
+                answer[next] = Math.max(answer[next], answer[vertex]); 
+            }
+        }
     }
 }
