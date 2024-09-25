@@ -18,17 +18,33 @@ N개의 단어가 주어졌을 때, 그 수의 합을 최대로 만드는 프로
  */
 public class codingTest40 {
     static int n;
-    static String[] str;
-    public static void main(String[] args) throws IOException {
+    static int[] alpha = new int[26];
+    public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
         
-        n = Integer.parseInt(st.nextToken());
-        str = new String[n];
+        n = Integer.parseInt(br.readLine());
+        Arrays.fill(alpha, 0);
 
         for(int i=0; i<n; i++){
-            str[i] = br.readLine();
+            String str = br.readLine(); // 입력받은 단어
+            for(int j=0; j<str.length(); j++){
+                char c = str.charAt(j);
+                alpha[c - 'A'] += (int)Math.pow(10, str.length()-1-j);
+            }
         }
+
+        Arrays.sort(alpha); // 배열 정렬
+
+        int num = 9; // 가장 큰 수부터 넣음
+        int index = 25; // 가장 큰 자릿값을 가진 알파벳 인덱스
+        int sum = 0;
+
+        while(alpha[index] > 0){
+            sum += alpha[index] * num; 
+            index--; num--;
+        }
+        System.out.println(sum);
+        
         
     }
 }
