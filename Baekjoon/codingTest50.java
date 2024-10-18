@@ -13,20 +13,61 @@ import java.io.*;
 
 public class codingTest50 {
     static int n, m;
+    static int[][] arr1, arr2;
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        Scanner in = new Scanner(System.in);
 
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
+        n = in.nextInt();
+        m = in.nextInt();
 
-        for(int i=0; i<2; i++){
-            for(int a=0; a<n; a++){
-                for(int b=0; b<m; b++){
-                    
-                }
+        arr1 = new int[n][m];
+        arr2 = new int[n][m];
+
+        // 행렬 a 입력
+        for(int i=0; i<n; i++){
+            String str = in.next();
+            for(int j=0; j<m; j++){
+                arr1[i][j] = Integer.parseInt(str.substring(j, j+1));
             }
         }
+
+        // 행렬 b 입력
+        for(int i=0; i<n; i++){
+            String str = in.next();
+            for(int j=0; j<m; j++){
+                arr2[i][j] = Integer.parseInt(str.substring(j, j+1));
+            }
+        }
+
+        int cnt=0;
+        for(int i=0; i<n-2; i++){
+            for(int j=0; j<m-2; j++){
+                if(arr1[i][j]!=arr2[i][j]){
+                    change(i, j);
+                    cnt++;
+                } 
+            }
+        }
+
+        boolean flag=true;
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                if(arr1[i][j]!=arr2[i][j]){
+                    flag = false;
+                } 
+            }
+        }
+
+        if(flag) System.out.println(cnt);
+        else System.out.println(-1);
         
+    }
+
+    static void change(int a, int b){
+        for(int i=a; i<a+3; i++){
+            for(int j=b; j<b+3; j++){
+                arr1[i][j] = arr1[i][j]^1;
+            }
+        }
     }
 }
