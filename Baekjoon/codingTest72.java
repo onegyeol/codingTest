@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.*;
 
 /*
- * 백준 11403번 경로 탐색
+ * 백준 11403번 경로 찾기
  * 
  * 가중치 없는 방향 그래프 G가 주어졌을 때, 모든 정점 (i, j)에 대해서, i에서 j로 가는 길이가 양수인 경로가 있는지 없는지 구하는 프로그램을 작성하시오.
  */
@@ -48,3 +48,26 @@ public class codingTest72 {
         System.out.println(sb);
     }
 }
+
+/**
+ * 파이썬 코드
+ * 
+ * def solve():
+ *  n = int(input())
+ *  graph = [list(map(int, input().split())) for _ in range(n)]
+ * 
+ *  for k in range(n):
+ *      for i in range(n):
+ *          if graph[i][k] == 0 :
+ *              continue
+ *          for j in range(n):
+ *              if graph[k][j] == 0:
+ *                  continue;
+ *              graph[i][j] = 1
+ * 
+ *  for row in graph :
+ *      print(*row)
+ * 
+ * if __name__ == "__main__":
+ *      solve()
+ */
