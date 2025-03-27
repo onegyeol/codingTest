@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  *  N자리 숫자가 주어졌을 때, 여기서 숫자 K개를 지워서 얻을 수 있는 가장 큰 수를 구하는 프로그램을 작성하시오.
  * 
  */
-public class BaekjoonTest75 {
+public class codingTest75 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
