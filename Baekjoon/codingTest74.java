@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
  * 각 사람들이 기억하는 정보가 주어질 때, 줄을 어떻게 서야 하는지 출력하는 프로그램을 작성하시오
  */
 
-public class BaekjoonTest74 {
+public class codingTest74 {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
