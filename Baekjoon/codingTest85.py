@@ -3,7 +3,7 @@ import heapq
 from collections import defaultdict
 
 # 백준 7662번 이중 우선순위 큐
-imput = sys.stdin.readline
+input = sys.stdin.readline
 
 def dual_priority_queue():
     n = int(input())
