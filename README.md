@@ -1,6 +1,7 @@
 # 💻 CodingTest
 프로그래머스, 백준 등 코딩테스트 풀이를 기록하는 저장소입니다.
 
+[![solved.acprofile](http://mazassumnida.wtf/api/v2/generate_badge?boj=gksruf3414)](https://solved.ac/gksruf3414)
 
 ### 🔸개발 언어 및 환경
 
