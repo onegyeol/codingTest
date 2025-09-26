@@ -34,6 +34,7 @@ public class codingTest108 {
             
             if(sta.size()>=4){
                 int size = sta.size();
+                // 1->2->3->1이 존재한다면 햄버거가 만들어진 것(빵야채패티빵)
                 if (sta.get(size-4) == 1 &&
                     sta.get(size-3) == 2 &&
                     sta.get(size-2) == 3 &&
