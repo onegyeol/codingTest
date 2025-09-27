@@ -40,7 +40,7 @@ public class codingTest107 {
         while(ops<=limit){
             if(sum1==target) return ops;
             if (sum1 > target) {
-                sum1 -= all[i % (2 * len)];
+                sum1 -= all[i % (2 * len)]; // 2*len은 all 배열의 길이, sum1에서 하나씩 제거
                 i++;
             } else {
                 sum1 += all[j % (2 * len)];
