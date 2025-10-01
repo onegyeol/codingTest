@@ -1,3 +1,4 @@
+package progammers;
 import java.util.*;
 //프로그래머스 lv.2
 class 짝지어제거하기
