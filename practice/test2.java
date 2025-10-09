@@ -25,7 +25,7 @@ public class test2 {
 class Task{
     String name;
     int priority;
-    long seq;
+    long seq; // 들어온 순서 보장
 
     public Task(String name, int priority){
         this.name = name;
