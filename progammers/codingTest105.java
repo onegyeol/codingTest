@@ -8,6 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/*
+ * 프로그래머스 Lv.2 2019 KAKAO BLIND RECRUITMENT 오픈채팅방
+ */
+
 public class codingTest105 {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,6 +35,7 @@ public class codingTest105 {
             String command = input[0];
             String userid = input[1];
 
+            // Enter와 Change만 신경쓰면 됨
             if (command.equals("Enter") || command.equals("Change")) {
                 String nickname = input[2];
                 map.put(userid, nickname); // 최신 닉네임 저장
