@@ -75,10 +75,10 @@ public class codingTest109 {
         int n = word[0].length;
 
         for (int col = 0; col < n; col++) {
-            int write = m - 1;
+            int write = m - 1; // 현재 행의 가장 밑바닥
             for (int row = m - 1; row >= 0; row--) {
-                if (!removed[row][col]) {
-                    word[write--][col] = word[row][col];
+                if (!removed[row][col]) { // 지워지지 않았다면 
+                    word[write--][col] = word[row][col]; // 아래로 옮김
                 }
             }
             while (write >= 0) {
