@@ -31,6 +31,7 @@ public class codingTest113 {
             sta.push(c);
         }
         
+        // k개의 수를 다 제거하지 않았을 때는 뒤에서 남은 갯수만큼 삭제
         while(k>0){
             sta.pop();
             k--;
