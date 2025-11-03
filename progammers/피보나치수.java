@@ -1,3 +1,5 @@
+package progammers;
+
 public class 피보나치수{
     class Solution {
         public int solution(int n) {
