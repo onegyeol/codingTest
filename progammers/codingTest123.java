@@ -6,7 +6,7 @@ package progammers;
  * 민수와 마법의 엘리베이터가 있는 층을 나타내는 정수 storey 가 주어졌을 때, 0층으로 가기 위해 필요한 마법의 돌의 최소값을 return 하도록 solution 함수를 완성하세요.
  */
 
-public class codingTesr123 {
+public class codingTest123 {
     public static void main(String[] args) {
         // storey 입력 받음
     }
