@@ -42,6 +42,7 @@ public class codingTest1 {
 
         for(int i=1; i<=n; i++){
             for(int j=1; j<=k; j++){
+                // 가방 무게보다 물품 무게가 더 크다면 이전걸로 대체
                 if(j < arr[i].w){
                     dp[i][j] = dp[i-1][j];
                 }
